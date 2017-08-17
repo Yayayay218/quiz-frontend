@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>YQuiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/yquizz.css">
+    <!--FONT-->
+
+</head>
+<body ng-app="YQuiz">
+
+<!--MAIN CONTENT-->
+<div ui-view="header"></div>
+<div ui-view="content"></div>
+<div ui-view="footer"></div>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<!---->
+<script src="scripts/app.js"></script>
+<script src="views/home/home.state.js"></script>
+<script src="views/detail/detail.state.js"></script>
+<script src="scripts/controllers/detail.controller.js"></script>
+</body>
+</html>
