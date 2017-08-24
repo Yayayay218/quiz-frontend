@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope) {
+    .controller('detailCtrl', function ($scope, Socialshare) {
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showThird = false;
@@ -26,11 +26,20 @@ angular.module('YQuiz')
             $scope.showResult = true;
         };
         
+        // $scope.shareFB = function () {
+        //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'http://128.199.148.169',
+        //         'facebook-share-dialog',
+        //         'width=800,height=600'
+        //     );
+        //     return false;
+        // }
+
         $scope.shareFB = function () {
-            window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'google.com',
-                'facebook-share-dialog',
-                'width=800,height=600'
-            );
-            return false;
+            Socialshare.share({
+                'provider': 'facebook',
+                'attrs': {
+                    'socialshareUrl': 'http://128.199.148.169'
+                }
+            });
         }
     });
