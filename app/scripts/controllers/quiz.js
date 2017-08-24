@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope, Socialshare) {
+    .controller('detailCtrl', function ($scope, Socialshare, quizService) {
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showThird = false;
@@ -25,7 +25,7 @@ angular.module('YQuiz')
             $scope.showLast = false;
             $scope.showResult = true;
         };
-        
+
         // $scope.shareFB = function () {
         //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'http://128.199.148.169',
         //         'facebook-share-dialog',
@@ -41,5 +41,16 @@ angular.module('YQuiz')
                     'socialshareUrl': 'http://128.199.148.169'
                 }
             });
-        }
+        };
+
+        $scope.limit = 0;
+        $scope.quizzes = quizService
+            .quizGetAll()
+            .error(function (e) {
+                console.log(e)
+            })
+            .then(function (res) {
+                $scope.quizzes = res.data.data;
+                $scope.limit = $scope.quizzes.length - 2;
+            })
     });

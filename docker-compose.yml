@@ -2,8 +2,19 @@ version: "2"
 
 services:
   node:
+    restart: always
     build: .
     ports:
-      - "80:80"
+      - "8000:8000"
     volumes:
-      - ./:/opt/app
+      - /home/app/quiz-frontend
+  nginx:
+      restart: always
+      build: ./compose/nginx
+      volumes_from:
+        - node
+      depends_on:
+        - node
+      ports:
+        - "80:80"
+

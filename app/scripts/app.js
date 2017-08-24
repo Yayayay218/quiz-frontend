@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var YQuiz = angular.module('YQuiz', ['ui.router']);
+var YQuiz = angular.module('YQuiz', ['ui.router', '720kb.socialshare']);
 
 YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
@@ -19,7 +19,7 @@ YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }
         });
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 });
 
 

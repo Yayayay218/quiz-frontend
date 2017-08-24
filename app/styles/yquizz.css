@@ -50,6 +50,7 @@
 
 .yquizz-img-lg {
     height: 400px;
+    overflow: hidden;
 }
 
 .yquizz-img-lg img {
@@ -58,6 +59,11 @@
     border-radius: 5px;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
 }
+/*.yquizz-img-lg img:hover {*/
+    /*-moz-transform: scale(1.1);*/
+    /*-webkit-transform: scale(1.1);*/
+    /*transform: scale(1.1);*/
+/*}*/
 
 .yquizz-list-content {
     position: absolute;
@@ -82,6 +88,19 @@
 
 .yquizz-list-content-sm {
     color: #43484d;
+}
+
+.yquizz-list-content-sm p {
+    height: 4em;
+    overflow: hidden;
+}
+
+.yquizz-list-content-sm a {
+    color: #43484d;
+}
+
+.yquizz-list-content-sm a:hover {
+    text-decoration: none;
 }
 
 .yquizz-footer {

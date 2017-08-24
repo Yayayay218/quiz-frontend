@@ -1,26 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" ng-repeat="quiz in quizzes | limitTo: -2">
             <div class="yquizz-list-lg">
                 <div class="yquizz-img-lg">
-                    <img src="../../images/banner2.jpeg" alt="">
+                    <img ng-src="{{quiz.featuredImg}}" alt="">
                 </div>
                 <div class="yquizz-list-content">
                     <i class="fa fa-eye"></i> 2108
-                    <h3><a ui-sref="detail">5 Reasons To Keep Your Beauty Salon Reservation</a></h3>
-                    <p>1 hour ago</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="yquizz-list-lg">
-                <div class="yquizz-img-lg">
-                    <img src="../../images/banner4.jpeg" alt="">
-                </div>
-                <div class="yquizz-list-content">
-                    <i class="fa fa-eye"></i> 2108
-                    <h3><a ui-sref="detail">5 Reasons To Keep Your Beauty Salon Reservation</a></h3>
+                    <h3><a ui-sref="detail">{{quiz.title}}</a></h3>
                     <p>1 hour ago</p>
                 </div>
             </div>
@@ -28,83 +15,15 @@
     </div>
 
     <div class="row" style="margin-top: 30px">
-        <div class="col-md-4">
+        <div class="col-md-4" ng-repeat="quiz in quizzes | limitTo: limit" style="">
             <div class="yquizz-list-sm">
                 <div class="yquizz-img-sm">
-                    <img src="../../images/banner1.jpeg" alt="">
+                    <img ng-src="{{quiz.featuredImg}}" alt="">
                 </div>
                 <div class="yquizz-list-content-sm">
                     <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                    <h3><a ui-sref="detail">5 Reasons To Keep Your Beauty Salon Reservation</a></h3>
-                    <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="yquizz-list-sm">
-                <div class="yquizz-img-sm">
-                    <img src="../../images/banner1.jpeg" alt="">
-                </div>
-                <div class="yquizz-list-content-sm">
-                    <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                    <h3><a ui-sref="detail">5 Reasons To Keep Your Beauty Salon Reservation</a></h3>
-
-                    <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="yquizz-list-sm">
-                <div class="yquizz-img-sm">
-                    <img src="../../images/banner1.jpeg" alt="">
-                </div>
-                <div class="yquizz-list-content-sm">
-                    <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                    <h3><a ui-sref="detail">5 Reasons To Keep Your Beauty Salon Reservation</a></h3>
-                    <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 30px">
-        <div class="col-md-4">
-            <div class="yquizz-list-sm">
-                <div class="yquizz-img-sm">
-                    <img src="../../images/banner1.jpeg" alt="">
-                </div>
-                <div class="yquizz-list-content-sm">
-                    <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                    <h3>5 Reasons To Keep Your Beauty Salon Reservation</h3>
-                    <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="yquizz-list-sm">
-                <div class="yquizz-img-sm">
-                    <img src="../../images/banner1.jpeg" alt="">
-                </div>
-                <div class="yquizz-list-content-sm">
-                    <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                    <h3>5 Reasons To Keep Your Beauty Salon Reservation</h3>
-                    <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="yquizz-list-sm">
-                <div class="yquizz-img-sm">
-                    <img src="../../images/banner1.jpeg" alt="">
-                </div>
-                <div class="yquizz-list-content-sm">
-                    <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                    <h3>5 Reasons To Keep Your Beauty Salon Reservation</h3>
-                    <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
+                    <h3><a ui-sref="detail">{{quiz.title}}</a></h3>
+                    <p>{{quiz.description}}</p>
                 </div>
             </div>
         </div>

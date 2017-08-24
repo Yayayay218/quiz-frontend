@@ -11,6 +11,7 @@ angular.module('YQuiz')
                 views: {
                     'content@': {
                         templateUrl: 'views/home/index.html',
+                        controller: 'detailCtrl'
                     }
                 }
             });
