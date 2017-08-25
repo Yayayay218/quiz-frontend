@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope, Socialshare, quizService) {
+    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location) {
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showThird = false;
@@ -44,6 +44,7 @@ angular.module('YQuiz')
         };
 
         $scope.limit = 0;
+        // $scope.quizzes = [];
         $scope.quizzes = quizService
             .quizGetAll()
             .error(function (e) {
@@ -52,5 +53,35 @@ angular.module('YQuiz')
             .then(function (res) {
                 $scope.quizzes = res.data.data;
                 $scope.limit = $scope.quizzes.length - 2;
-            })
+            });
+        if ($location.search().id){
+            $scope.quizById = quizService
+                .quizGetOne($location.search().id)
+                .error(function (e) {
+                    console.log(e)
+                })
+                .then(function (res) {
+                    $scope.quizById = res.data.data;
+                    console.log($scope.quizById);
+                });
+
+            $scope.questions = quizService
+                .questionByQuiz($location.search().id)
+                .error(function (e) {
+                    console.log(e)
+                })
+                .then(function (res) {
+                    $scope.questions = res.data.data;
+                    console.log($scope.questions);
+                });
+            $scope.indexStt = 0;
+            $scope.pickAnswer = function () {
+                if(($scope.indexStt + 1) === $scope.questions.length){
+                    $scope.showSecond = false;
+                    $scope.showResult = true;
+                }
+                else
+                    $scope.indexStt++;
+            };
+        }
     });

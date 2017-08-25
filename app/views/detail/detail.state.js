@@ -6,7 +6,7 @@ angular.module('YQuiz')
         $stateProvider
 
             .state('detail', {
-                url: '/detail',
+                url: '/detail?id',
                 parent: 'layout',
                 views: {
                     'content@': {

@@ -193,12 +193,16 @@
     font-size: 16px;
 }
 
+.show-second .btn-primary:hover {
+    background-color: #e60e64;
+}
+
 .yquizz-question {
     width: 100%;
     height: 80px;
     background-color: #f2d122;
     position: absolute;
-    bottom: 150px;
+    top: 370px;
 }
 
 .yquizz-question h2 {
