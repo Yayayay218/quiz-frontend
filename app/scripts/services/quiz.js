@@ -15,9 +15,14 @@ function quizService(API, $http) {
     var questionByQuiz = function (id) {
         return $http.get(API.URL + 'questions?quiz=' + id);
     };
+
+    var resultByQuiz = function (id) {
+        return $http.get(API.URL + 'results?quiz=' + id);
+    };
     return {
         quizGetAll: quizGetAll,
         quizGetOne: quizGetOne,
-        questionByQuiz: questionByQuiz
+        questionByQuiz: questionByQuiz,
+        resultByQuiz: resultByQuiz
     }
 }

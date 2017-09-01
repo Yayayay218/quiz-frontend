@@ -52,9 +52,9 @@
             <!--</div>-->
 
             <div class="show-second" ng-show="showResult">
-                <img src="../../images/abc.jpeg" alt="">
+                <img ng-src="{{results[randResult].featuredImg}}" alt="">
                 <div class="yquizz-question">
-                    <h2>Your are so awesome!!!</h2>
+                    <h2>{{results[randResult].title}}</h2>
                 </div>
             </div>
 

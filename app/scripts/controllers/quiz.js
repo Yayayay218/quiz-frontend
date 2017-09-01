@@ -54,7 +54,7 @@ angular.module('YQuiz')
                 $scope.quizzes = res.data.data;
                 $scope.limit = $scope.quizzes.length - 2;
             });
-        if ($location.search().id){
+        if ($location.search().id) {
             $scope.quizById = quizService
                 .quizGetOne($location.search().id)
                 .error(function (e) {
@@ -62,7 +62,6 @@ angular.module('YQuiz')
                 })
                 .then(function (res) {
                     $scope.quizById = res.data.data;
-                    console.log($scope.quizById);
                 });
 
             $scope.questions = quizService
@@ -72,11 +71,21 @@ angular.module('YQuiz')
                 })
                 .then(function (res) {
                     $scope.questions = res.data.data;
-                    console.log($scope.questions);
                 });
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
-                if(($scope.indexStt + 1) === $scope.questions.length){
+                if (($scope.indexStt + 1) === $scope.questions.length) {
+                    $scope.results = quizService
+                        .resultByQuiz($location.search().id)
+                        .error(function (e) {
+                            console.log(e)
+                        })
+                        .then(function (res) {
+                            $scope.results = res.data.data;
+                            $scope.randResult = Math.floor(Math.random() * $scope.results.length);
+                            console.log($scope.randResult);
+                        });
+
                     $scope.showSecond = false;
                     $scope.showResult = true;
                 }
