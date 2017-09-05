@@ -5,7 +5,7 @@ angular.module('YQuiz')
 
 function quizService(API, $http) {
     var quizGetAll = function () {
-        return $http.get(API.URL + 'quizzes?sort=-createdAt');
+        return $http.get(API.URL + 'quizzes?sort=-_id');
     };
 
     var quizGetOne = function (id) {

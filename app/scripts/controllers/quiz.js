@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location) {
+    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout) {
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showThird = false;
@@ -12,18 +12,6 @@ angular.module('YQuiz')
         $scope.play = function () {
             $scope.showFirst = false;
             $scope.showSecond = true;
-        };
-        $scope.pick1 = function () {
-            $scope.showSecond = false;
-            $scope.showThird = true;
-        };
-        $scope.pick2 = function () {
-            $scope.showThird = false;
-            $scope.showLast = true;
-        };
-        $scope.pick3 = function () {
-            $scope.showLast = false;
-            $scope.showResult = true;
         };
 
         // $scope.shareFB = function () {

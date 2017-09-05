@@ -1,3 +1,9 @@
+.form-control::-webkit-input-placeholder { /* Chrome */
+    color: #ffffff;
+    /*opacity: 0.8;*/
+    /*z-index: 1000;*/
+}
+
 .yquizz-search .navbar-form {
     width: 100%;
 }
@@ -6,6 +12,10 @@
     width: 100%;
     height: 60px;
     border-radius: 6px;
+    background-color: #d9005a;
+    border-color: #d9005a;
+    box-shadow: none;
+    color: #ffffff;
 }
 
 .yquizz-search .form-group {
@@ -59,11 +69,16 @@
     border-radius: 5px;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
 }
-/*.yquizz-img-lg img:hover {*/
-    /*-moz-transform: scale(1.1);*/
-    /*-webkit-transform: scale(1.1);*/
-    /*transform: scale(1.1);*/
-/*}*/
+
+.yquizz-img-lg::after {
+    display: block;
+    position: relative;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #000000);
+    margin-top: -180px;
+    height: 180px;
+    width: 100%;
+    content: '';
+}
 
 .yquizz-list-content {
     position: absolute;
@@ -169,11 +184,13 @@
 .btn-circle.btn-xl {
     width: 142px;
     height: 142px;
-    font-size: 24px;
+    font-size: 1.5em;
     line-height: 1.33;
     border-radius: 71px;
     background-color: #f2d122;
     border: solid 1px #979797;
+    color: #252525;
+    font-weight: bold;
 }
 
 .show-second .btn-group-vertical {
@@ -183,8 +200,9 @@
 
 .show-second .btn-group-vertical .btn {
     margin-bottom: 6px;
-    border-radius: 5px;
+    border-radius: 5px !important;
     border: solid 1px #2e313c;
+    height: 50px;
 }
 
 .show-second .btn-primary {
@@ -258,6 +276,10 @@
     font-size: 20px;
 }
 
+.btn-facebook:hover {
+    color: #ffffff;
+}
+
 .btn-message {
     background-color: #ffffff;
     color: #0078ff;
@@ -265,8 +287,141 @@
     border: solid 1px #0078ff;
 }
 
+.btn-message:hover {
+    color: #0078ff;
+}
+
 .btn-next {
     background-color: #55acee;
     color: #ffffff;
     font-size: 18px;
+}
+
+.btn-next:hover{
+    color: #ffffff;
+}
+
+.yquizz-list-content h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 2.25em;
+}
+
+.facebook-icon {
+    background: url(../images/social-icon/facebook-logo.svg) no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: 16px 16px;
+    padding-right: 25px;
+}
+
+.facebook-icon-btn {
+    background: url(../images/social-icon/facebook-btn.svg) no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: 16px 16px;
+    padding-right: 25px;
+}
+
+.messenger-icon {
+    background: url(../images/social-icon/messenger.svg) no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: 16px 16px;
+    padding-right: 25px;
+}
+
+.twitter-icon {
+    background: url(../images/social-icon/twitter-logo-silhouette.svg) no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: 16px 16px;
+    padding-right: 25px;
+}
+
+.instagram-icon {
+    background: url(../images/social-icon/instagram-social.svg) no-repeat 0 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: 16px 16px;
+}
+
+@media (max-width: 767px) {
+    .yquizz-img-lg {
+        height: 204px;
+        margin-bottom: 15px;
+    }
+
+    .yquizz-list-content {
+        top: 95px;
+        left: 15px;
+    }
+
+    .yquizz-list-content h3 {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        font-size: 1.75em;
+    }
+
+    .yquizz-img-sm img {
+        height: 188px;
+    }
+
+    .show-first img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .btn-circle {
+        top: 96px;
+        left: 96px;
+    }
+
+    .btn-circle.btn-xl {
+        width: 108px;
+        height: 108px;
+    }
+
+    .show-second img {
+        height: 417px;
+    }
+
+    .yquizz-question {
+        height: 117px;
+        top: 300px;
+    }
+
+    .yquizz-question h2 {
+        font-size: 24px;
+        font-weight: 500;
+        text-align: left;
+        color: #252525;
+        padding-left: 20px;
+        padding-top: 0px;
+    }
+
+    .yquizz-question .number-question {
+        text-align: left;
+        margin-top: 36px;
+        padding-left: 20px;
+        font-size: 18px;
+        color: #252525;
+    }
+
+    .show-second .btn-group-vertical {
+        margin-top: 15px;
+    }
+
+    .yquizz-btn {
+        margin-top: 15px;
+    }
+
+    .yquizz-footer .pull-right {
+        float: none !important;
+    }
 }

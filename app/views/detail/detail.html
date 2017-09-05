@@ -13,43 +13,13 @@
                 <div class="yquizz-question">
                     <h2>{{questions[indexStt].title}}</h2>
                     <div class="number-question">
-                        <p>Question 1/{{questions.length}}</p>
+                        <p>Question {{indexStt + 1}}/{{questions.length}}</p>
                     </div>
                 </div>
                 <div class="btn-group-vertical">
                     <button type="button" class="btn btn-primary" ng-click="pickAnswer()" ng-repeat="choice in questions[indexStt].answers">{{choice.content}}</button>
                 </div>
             </div>
-
-            <!--<div class="show-second" ng-show="showThird">-->
-                <!--<img src="../../images/banner2.jpeg" alt="">-->
-                <!--<div class="yquizz-question">-->
-                    <!--<h2>1 +1 = ?</h2>-->
-                    <!--<div class="number-question">-->
-                        <!--<p>Question 2/3</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="btn-group-vertical">-->
-                    <!--<button type="button" class="btn btn-primary" ng-click="pick2()">1</button>-->
-                    <!--<button type="button" class="btn btn-primary" ng-click="pick2()">2</button>-->
-                    <!--<button type="button" class="btn btn-primary" ng-click="pick2()">3</button>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="show-second" ng-show="showLast">-->
-                <!--<img src="../../images/banner4.jpeg" alt="">-->
-                <!--<div class="yquizz-question">-->
-                    <!--<h2>5 Tips To Supercharge Your Motivation ?</h2>-->
-                    <!--<div class="number-question">-->
-                        <!--<p>Question 3/3</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="btn-group-vertical">-->
-                    <!--<button type="button" class="btn btn-primary" ng-click="pick3()">Symbian</button>-->
-                    <!--<button type="button" class="btn btn-primary" ng-click="pick3()">Nokia</button>-->
-                    <!--<button type="button" class="btn btn-primary" ng-click="pick3()">Android</button>-->
-                <!--</div>-->
-            <!--</div>-->
 
             <div class="show-second" ng-show="showResult">
                 <img ng-src="{{results[randResult].featuredImg}}" alt="">
@@ -60,10 +30,10 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <button type="button" class="btn yquizz-btn btn-facebook" id="fbBtn" ng-click="shareFB()">Share on Facebook</button>
+                    <button type="button" class="btn yquizz-btn btn-facebook" id="fbBtn" ng-click="shareFB()"><span class="facebook-icon-btn"></span>Share on Facebook</button>
                 </div>
                 <div class="col-md-5">
-                    <button type="button" class="btn yquizz-btn btn-message">Share on Messenger</button>
+                    <button type="button" class="btn yquizz-btn btn-message"><span class="messenger-icon"></span>Share on Messenger</button>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn yquizz-btn btn-next">Next Quiz</button>
