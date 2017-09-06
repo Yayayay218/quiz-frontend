@@ -52,26 +52,16 @@
             </div>
         </div>
 
-        <div class="yquizz-list-sm">
+        <div class="yquizz-list-sm" ng-repeat="quiz in items | limitTo: 2">
             <div class="yquizz-img-sm">
-                <img src="../../images/banner1.jpeg" alt="">
+                <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
             </div>
             <div class="yquizz-list-content-sm">
                 <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                <h3>5 Reasons To Keep Your Beauty Salon Reservation</h3>
-                <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
+                <h3><a ui-sref="detail({id: quiz._id})" href="">{{quiz.title}}</a></h3>
+                <p>{{quiz.description}}</p>
             </div>
         </div>
 
-        <div class="yquizz-list-sm">
-            <div class="yquizz-img-sm">
-                <img src="../../images/banner1.jpeg" alt="">
-            </div>
-            <div class="yquizz-list-content-sm">
-                <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                <h3>5 Reasons To Keep Your Beauty Salon Reservation</h3>
-                <p>When I was a young man, even a teenager for that matter, I always had an optimism that was hard for</p>
-            </div>
-        </div>
     </div>
 </div>
