@@ -1,3 +1,15 @@
+/* Search icon by IcoMoon, made with http://icomoon.io/app/ */
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon/icomoon.eot');
+    src:url('fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icomoon/icomoon.woff') format('woff'),
+    url('fonts/icomoon/icomoon.ttf') format('truetype'),
+    url('fonts/icomoon/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .form-control::-webkit-input-placeholder { /* Chrome */
     color: #ffffff;
     /*opacity: 0.8;*/
@@ -6,6 +18,9 @@
 
 .yquizz-search .navbar-form {
     width: 100%;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 .yquizz-search .form-control {
@@ -201,7 +216,7 @@
 .show-second .btn-group-vertical .btn {
     margin-bottom: 6px;
     border-radius: 5px !important;
-    border: solid 1px #2e313c;
+    border: solid 1px #e9e9ea;
     height: 50px;
 }
 
@@ -357,6 +372,34 @@
     margin-bottom: 30px;
 }
 
+.yquizz-icon-search {
+    font-family: 'icomoon';
+    color: #ffffff;
+    z-index: 90;
+    font-size: 22px;
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    padding: 0;
+    margin: 0;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.yquizz-icon-search::before {
+    content: "\e000";
+}
+
 @media (max-width: 767px) {
     .yquizz-img-lg {
         height: 204px;
@@ -429,5 +472,18 @@
 
     .yquizz-footer .pull-right {
         float: none !important;
+    }
+
+    .yquizz-lang .btn-group {
+        margin-top: 18px;
+        margin-left: 95px;
+    }
+
+    .search-input {
+        display: none;
+    }
+
+    .yquizz-icon-search {
+        top: 16px;
     }
 }

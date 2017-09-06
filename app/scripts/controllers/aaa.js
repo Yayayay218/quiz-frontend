@@ -375,3 +375,71 @@ angular.element(document).ready(function () {
         }
     });
 })();
+
+(function () {
+    app.controller('listDetailController', function ($scope, $http, $state, $filter, $stateParams) {
+        var id = $stateParams.listkey;
+        $scope.listDetail = [];
+        $http.get('http://en.topquiz.co/list/getData/One/' + id).success(function (response) {
+            if (response.error !== "") {
+                $scope.listDetail = response;
+            } else {
+                $scope.listDetail = [];
+            }
+            $scope.urlFB = window.location.href;
+            $scope.urlFB = $scope.urlFB.split("?")[0];
+            $scope.shareFB = function () {
+                FB.ui({
+                    method: 'feed',
+                    name: $scope.listDetail[0].title,
+                    picture: $scope.listDetail[0].thumb.large,
+                    link: $scope.urlFB,
+                    description: $scope.listDetail[0].description,
+                }, function (response) {
+                });
+            }
+        });
+        $scope.recommend = [];
+        $http.get('http://en.topquiz.co/view/hot').success(function (response) {
+            if (response.error !== "") {
+                $scope.recommend = response;
+            } else {
+                $scope.recommend = [];
+            }
+        });
+        $scope.suggest = [];
+        $http.get('http://en.topquiz.co/view/get/' + 3).success(function (response) {
+            if (response.error == "") {
+                $scope.suggest = [];
+            } else {
+                $scope.suggest = response;
+            }
+        });
+    });
+})();
+
+(function () {
+    app.service('urlSer', [function () {
+        this.converturl = function (id, title) {
+            title = angular.lowercase(title);
+            title = title.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            title = title.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            title = title.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            title = title.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            title = title.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            title = title.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            title = title.replace(/đ/g, "d");
+            title = title.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|\-|,|\.|\:|\'|\"|\&|\#|\[|\]|~/g, "");
+            var i = 0, titleLength = title.length;
+            for (i; i < titleLength; i++) {
+                title = title.replace(" ", "-");
+            }
+            return id + '-' + title + '.html';
+        }
+    }]);
+    app.filter('slice', function () {
+        return function (arr, start) {
+            return arr.slice(start);
+        };
+    });
+})();
