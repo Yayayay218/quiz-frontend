@@ -17,6 +17,8 @@
     "protractor": "^4.0.9"
   },
   "scripts": {
+    "postinstall": "bower install --allow-root",
+    "prestart": "npm install",
     "start": "http-server -a 0.0.0.0 -p 8000 -c-1 ./app",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
