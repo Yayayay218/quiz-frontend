@@ -310,3 +310,68 @@
         });
     });
 })();
+
+var app = angular.module('myApp', ['ui.router', 'ngResource', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize', 'ezfb']);
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'ezfbProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, ezfbProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider.state('home', {url: "/", templateUrl: "views/home.html"}).state('category', {
+        url: "/:type",
+        templateUrl: "views/category.view.html"
+    }).state('quiz', {url: "/quiz", templateUrl: "views/quiz.view.html"}).state('list', {
+        url: "/list",
+        templateUrl: "views/list.view.html"
+    }).state('quiziq', {
+        url: "/quiziq",
+        templateUrl: "views/quiziq.view.html"
+    }).state('listview', {
+        url: "/list/:listkey",
+        templateUrl: "views/list.details.html"
+    }).state('quizview', {
+        url: "/quiz/:quizkey",
+        templateUrl: "views/quiz.details.html"
+    }).state('quiziqview', {url: "/quiz/iq/:quiziqkey", templateUrl: "views/quiziq.details.html"});
+    $locationProvider.html5Mode({enabled: true, requireBase: false});
+    ezfbProvider.setInitParams({appId: '1241557305921100', version: 'v2.8'});
+    ezfbProvider.setLocale('en_EN');
+}]);
+app.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
+    $window.ga('create', 'UA-51655784-5', 'auto');
+    $rootScope.$on('$stateChangeSuccess', function (event) {
+        $window.ga('send', 'pageview', $location.url());
+    });
+}]);
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ["myApp"]);
+});
+
+(function () {
+    app.controller('homeController', function ($scope, $http, $state, $filter) {
+        $scope.post = {};
+        $scope.post.after = 2;
+        $scope.post.busy = false;
+        $scope.post.items = [];
+        $http.get('http://en.topquiz.co/view/loadmore/1').success(function (response) {
+            if (response.error == "") {
+                $scope.post.items = [];
+            } else {
+                $scope.post.items = response.data;
+            }
+        });
+        $scope.nextPage = function () {
+            if ($scope.post.busy) return;
+            $scope.post.busy = true;
+            $http.get("http://en.topquiz.co/view/loadmore/" + $scope.post.after).success(function (datas) {
+                if (datas.error == "" || datas.data == '') {
+                } else {
+                    var _items = datas.data;
+                    for (var i = 0; i < _items.length; i++) {
+                        $scope.post.items.push(_items[i]);
+                    }
+                }
+            }).finally(function () {
+                $scope.post.busy = false;
+            });
+            $scope.post.after += 1;
+        }
+    });
+})();

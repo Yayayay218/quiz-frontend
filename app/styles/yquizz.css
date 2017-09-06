@@ -351,6 +351,12 @@
     background-size: 16px 16px;
 }
 
+.shape {
+    background: url(../images/shape.svg) repeat-x;
+    margin-top: -22px;
+    margin-bottom: 30px;
+}
+
 @media (max-width: 767px) {
     .yquizz-img-lg {
         height: 204px;

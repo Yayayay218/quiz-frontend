@@ -1,11 +1,9 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout) {
+    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API) {
         $scope.showFirst = true;
         $scope.showSecond = false;
-        $scope.showThird = false;
-        $scope.showLast = false;
         $scope.showResult = false;
 
         var url = window.location.href;
@@ -31,17 +29,36 @@ angular.module('YQuiz')
             });
         };
 
-        $scope.limit = 0;
-        // $scope.quizzes = [];
-        $scope.quizzes = quizService
-            .quizGetAll()
+        $scope.page = 2;
+        $scope.quizzes = {};
+        $scope.items = [];
+        $scope.quizzes.busy = false;
+
+        $scope.items = quizService
+            .quizGetAll(1)
             .error(function (e) {
                 console.log(e)
             })
             .then(function (res) {
-                $scope.quizzes = res.data.data;
-                $scope.limit = $scope.quizzes.length - 2;
+                $scope.items = res.data.data;
             });
+        $scope.loadMore = function () {
+            if ($scope.quizzes.busy) return;
+            $scope.quizzes.busy = true;
+            $http.get(API.URL + 'quizzes?sort=-_id&page=' + $scope.page).success(function (datas) {
+                if (datas.data.error == "" || datas.data.data == '') {
+                } else {
+                    var _items = datas.data;
+                    for (var i = 0; i < _items.length; i++) {
+                        $scope.items.push(_items[i]);
+                    }
+                }
+            }).finally(function () {
+                $scope.quizzes.busy = false;
+            });
+            $scope.page += 1;
+        };
+
         if ($location.search().id) {
             $scope.quizById = quizService
                 .quizGetOne($location.search().id)

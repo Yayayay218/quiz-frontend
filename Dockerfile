@@ -2,6 +2,7 @@ FROM node:6.11.0
 
 RUN useradd --user-group --create-home --shell /bin/false app &&\
   npm install -g http-server && npm install -g bower
+RUN apt-get update && apt-get install -y nano && apt-get install -y apt-transport-https
 
 ENV HOME=/home/app
 
