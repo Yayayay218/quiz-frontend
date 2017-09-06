@@ -3,7 +3,7 @@
         <div class="col-md-6" ng-repeat="quiz in items | limitTo: 2">
             <div class="yquizz-list-lg">
                 <div class="yquizz-img-lg">
-                    <img ng-src="{{quiz.featuredImg}}" alt="">
+                    <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
                 </div>
                 <div class="yquizz-list-content">
                     <i class="fa fa-eye"></i> 2108
@@ -19,7 +19,7 @@
             <div class="col-md-4" ng-repeat="quiz in items">
                 <div class="yquizz-list-sm">
                     <div class="yquizz-img-sm">
-                        <img ng-src="{{quiz.featuredImg}}" alt="">
+                        <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
                     </div>
                     <div class="yquizz-list-content-sm">
                         <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
