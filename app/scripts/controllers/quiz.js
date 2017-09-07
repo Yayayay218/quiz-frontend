@@ -97,6 +97,7 @@ angular.module('YQuiz')
                             $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
                             ngMeta.setTitle($scope.titleShare);
                             ngMeta.setTag('image', $scope.thumbShare);
+
                             $scope.shareFB = function () {
                                 var no = 1, callback = function (res) {
                                     console.log($scope.titleShare + ' ' + $scope.thumbShare + ' ' +$scope.urlFB);

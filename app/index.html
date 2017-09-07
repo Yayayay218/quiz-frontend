@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="YQuiz">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>YQuiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="{{ngMeta['og:title']}}" />
+    <meta property="og:image" content="{{ngMeta['og:image']}}" />
     <base href="/">
 
     <!--CSS-->
@@ -15,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
-<body ng-app="YQuiz">
+<body >
 
 <!--MAIN CONTENT-->
 <div ui-view="header"></div>
