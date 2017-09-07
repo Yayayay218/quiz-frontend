@@ -19,6 +19,8 @@ YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ez
                 }
             }
         });
+    // $locationProvider.html5Mode({enabled: true, requireBase: false}).hashPrefix('!');
+
     ezfbProvider.setInitParams({appId: '1706155966071399', version: 'v2.8'});
     ezfbProvider.setLocale('en_EN');
 });
@@ -30,4 +32,5 @@ YQuiz.run(function ($rootScope, $state, ngMeta) {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
 });
+
 
