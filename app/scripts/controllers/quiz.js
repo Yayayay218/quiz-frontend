@@ -74,7 +74,7 @@ angular.module('YQuiz')
                 .then(function (res) {
                     $scope.quizById = res.data.data;
                     ngMeta.setTitle($scope.quizById[0].title);
-                    ngMeta.setTitle('description', $scope.quizById[0].description);
+                    ngMeta.setTag('description', $scope.quizById[0].description);
                     ngMeta.setTag('image', $scope.quizById[0].featuredImg);
                     console.log($scope.quizById);
                     $scope.shareFB = function () {
