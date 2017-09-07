@@ -73,6 +73,22 @@ angular.module('YQuiz')
                 })
                 .then(function (res) {
                     $scope.quizById = res.data.data;
+                    ngMeta.setTitle($scope.quizById.title);
+                    ngMeta.setTag('image', $scope.quizById.featuredImg);
+                    $scope.shareFB = function () {
+                        var no = 1, callback = function (res) {
+                            console.log($scope.urlFB);
+                            console.log('FB.ui callback execution', no++);
+                            console.log('response:', res);
+                        };
+                        ezfb.ui({
+                            method: 'feed',
+                            name: $scope.quizById.title,
+                            picture: $scope.quizById.featuredImg,
+                            link: $scope.urlFB + "?ref=share",
+                            description: 'Welcome to yquizz',
+                        }, callback).then(callback);
+                    };
                 });
 
             $scope.questions = quizService
@@ -82,22 +98,6 @@ angular.module('YQuiz')
                 })
                 .then(function (res) {
                     $scope.questions = res.data.data;
-                    ngMeta.setTitle($scope.questions.title);
-                    ngMeta.setTag('image', $scope.questions.featuredImg);
-                    $scope.shareFB = function () {
-                        var no = 1, callback = function (res) {
-                            console.log($scope.urlFB);
-                            console.log('FB.ui callback execution', no++);
-                            console.log('response:', res);
-                        };
-                        ezfb.ui({
-                            method: 'feed',
-                            name: $scope.questions.title,
-                            picture: $scope.questions.featuredImg,
-                            link: $scope.urlFB + "?ref=share",
-                            description: 'Welcome to yquizz',
-                        }, callback).then(callback);
-                    };
                 });
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
