@@ -19,7 +19,7 @@ YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ez
                 }
             }
         });
-    ezfbProvider.setInitParams({appId: '254929914894031', version: 'v2.8'});
+    ezfbProvider.setInitParams({appId: '1706155966071399', version: 'v2.8'});
     ezfbProvider.setLocale('en_EN');
 });
 
