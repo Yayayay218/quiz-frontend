@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API) {
+    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API, ezfb) {
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showResult = false;
+        $scope.urlFB = window.location.href;
 
-        var url = window.location.href;
         $scope.play = function () {
             $scope.showFirst = false;
             $scope.showSecond = true;
@@ -20,14 +20,19 @@ angular.module('YQuiz')
         //     return false;
         // }
 
-        $scope.shareFB = function () {
-            Socialshare.share({
-                'provider': 'facebook',
-                'attrs': {
-                    'socialshareUrl': 'http://128.199.148.169'
-                }
-            });
-        };
+        // $scope.shareFB = function () {
+        //     var no = 1, callback = function (res) {
+        //         console.log('FB.ui callback execution', no++);
+        //         console.log('response:', res);
+        //     };
+        //     ezfb.ui({
+        //         method: 'feed',
+        //         name: $scope.titleShare,
+        //         picture: $scope.thumbShare,
+        //         link: $scope.urlFB + "?ref=share",
+        //         description: $scope.desShare,
+        //     }, callback).then(callback);
+        // };
 
         $scope.page = 2;
         $scope.quizzes = {};
@@ -88,7 +93,21 @@ angular.module('YQuiz')
                         .then(function (res) {
                             $scope.results = res.data.data;
                             $scope.randResult = Math.floor(Math.random() * $scope.results.length);
-                            console.log($scope.randResult);
+                            $scope.titleShare = $scope.results[$scope.randResult].title;
+                            $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
+                            $scope.shareFB = function () {
+                                var no = 1, callback = function (res) {
+                                    console.log('FB.ui callback execution', no++);
+                                    console.log('response:', res);
+                                };
+                                ezfb.ui({
+                                    method: 'feed',
+                                    name: $scope.titleShare,
+                                    picture: $scope.thumbShare,
+                                    link: $scope.urlFB + "?ref=share",
+                                    description: 'Welcome to yquizz',
+                                }, callback).then(callback);
+                            };
                         });
 
                     $scope.showSecond = false;

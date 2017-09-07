@@ -45,7 +45,7 @@
                     link: $scope.urlFB + "?ref=share",
                     description: $scope.desShare,
                 }, callback).then(callback);
-            }
+            };
             $scope.choingay = function () {
                 $("show-first").css('display', 'none');
                 $("show-seccond").css('display', 'block');
