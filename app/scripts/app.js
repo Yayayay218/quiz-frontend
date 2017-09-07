@@ -3,7 +3,7 @@
 // Declare app level module which depends on views, and components
 var YQuiz = angular.module('YQuiz', ['ui.router', '720kb.socialshare', 'infinite-scroll', 'ezfb', 'ngMeta']);
 
-YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ezfbProvider) {
+YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ezfbProvider, ngMetaProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
@@ -19,7 +19,6 @@ YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ez
                 }
             }
         });
-    // $locationProvider.html5Mode(true);
     ezfbProvider.setInitParams({appId: '254929914894031', version: 'v2.8'});
     ezfbProvider.setLocale('en_EN');
 });
