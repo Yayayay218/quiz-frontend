@@ -13,7 +13,7 @@ angular.module('YQuiz')
         };
 
         // $scope.shareFB = function () {
-        //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'http://128.199.148.169',
+        //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'http://yquizz.com',
         //         'facebook-share-dialog',
         //         'width=800,height=600'
         //     );
@@ -97,21 +97,27 @@ angular.module('YQuiz')
                             $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
                             ngMeta.setTitle($scope.titleShare);
                             ngMeta.setTag('image', $scope.thumbShare);
-
                             $scope.shareFB = function () {
-                                var no = 1, callback = function (res) {
-                                    console.log($scope.titleShare + ' ' + $scope.thumbShare + ' ' +$scope.urlFB);
-                                    console.log('FB.ui callback execution', no++);
-                                    console.log('response:', res);
-                                };
-                                ezfb.ui({
-                                    method: 'feed',
-                                    name: $scope.titleShare,
-                                    picture: $scope.thumbShare,
-                                    link: $scope.urlFB + "?ref=share",
-                                    description: 'Welcome to yquizz',
-                                }, callback).then(callback);
-                            };
+                                window.open('https://www.facebook.com/sharer/sharer.php?u=' + $scope.urlFB,
+                                    'facebook-share-dialog',
+                                    'width=800,height=600'
+                                );
+                                return false;
+                            }
+                            // $scope.shareFB = function () {
+                            //     var no = 1, callback = function (res) {
+                            //         console.log($scope.titleShare + ' ' + $scope.thumbShare + ' ' +$scope.urlFB);
+                            //         console.log('FB.ui callback execution', no++);
+                            //         console.log('response:', res);
+                            //     };
+                            //     ezfb.ui({
+                            //         method: 'feed',
+                            //         name: $scope.titleShare,
+                            //         picture: $scope.thumbShare,
+                            //         link: $scope.urlFB + "?ref=share",
+                            //         description: 'Welcome to yquizz',
+                            //     }, callback).then(callback);
+                            // };
                         });
 
                     $scope.showSecond = false;
