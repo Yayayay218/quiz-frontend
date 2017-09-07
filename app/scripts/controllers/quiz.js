@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API, ezfb) {
+    .controller('detailCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API, ezfb, ngMeta) {
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showResult = false;
@@ -95,6 +95,8 @@ angular.module('YQuiz')
                             $scope.randResult = Math.floor(Math.random() * $scope.results.length);
                             $scope.titleShare = $scope.results[$scope.randResult].title;
                             $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
+                            ngMeta.setTitle($scope.titleShare);
+                            ngMeta.setTag('image', $scope.thumbShare);
                             $scope.shareFB = function () {
                                 var no = 1, callback = function (res) {
                                     console.log($scope.titleShare + ' ' + $scope.thumbShare + ' ' +$scope.urlFB);
