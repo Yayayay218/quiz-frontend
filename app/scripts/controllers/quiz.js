@@ -6,6 +6,7 @@ angular.module('YQuiz')
         $scope.showSecond = false;
         $scope.showResult = false;
         $scope.urlFB = window.location.href;
+        console.log($scope.urlFB);
 
         $scope.play = function () {
             $scope.showFirst = false;
