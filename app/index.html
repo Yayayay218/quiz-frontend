@@ -9,9 +9,9 @@
     <meta name="fragment" content="!">
     <meta property="fb:app_id" content="1706155966071399">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ngMeta.title}}" />
-    <meta property="og:description" content="{{ngMeta.description}}" />
-    <meta property="og:image" content="{{ngMeta.image}}" />
+    <meta property="og:title" content="{{ngMeta.title}}"/>
+    <meta property="og:description" content="{{ngMeta.description}}"/>
+    <meta property="og:image" content="{{ngMeta.image}}"/>
     <meta property="og:image:width" content="960">
     <meta property="og:image:height" content="500">
     <base href="/">
@@ -24,8 +24,16 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
-<body >
-
+<body>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <!--MAIN CONTENT-->
 <div ui-view="header"></div>
 <div ui-view="content"></div>
