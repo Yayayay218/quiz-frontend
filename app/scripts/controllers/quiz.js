@@ -88,18 +88,24 @@ angular.module('YQuiz')
                     $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
                     ngMeta.setTag('image', $scope.thumbShare);
                     $scope.shareFB = function () {
-                        var no = 1, callback = function (res) {
-                            console.log($scope.urlFB);
-                            console.log('FB.ui callback execution', no++);
-                            console.log('response:', res);
-                        };
-                        ezfb.ui({
-                            method: 'feed',
-                            name: $scope.titleShare,
-                            picture: $scope.thumbShare,
-                            link: $scope.urlFB,
-                            description: 'Welcome to yquizz',
-                        }, callback).then(callback);
+                        // var no = 1, callback = function (res) {
+                        //     console.log($scope.urlFB);
+                        //     console.log('FB.ui callback execution', no++);
+                        //     console.log('response:', res);
+                        // };
+                        // ezfb.ui({
+                        //     method: 'feed',
+                        //     name: $scope.titleShare,
+                        //     picture: $scope.thumbShare,
+                        //     link: $scope.urlFB,
+                        //     description: 'Welcome to yquizz',
+                        // }, callback).then(callback);
+                        Socialshare.share({
+                            'provider': 'facebook',
+                            'attrs': {
+                                'socialshareUrl': $scope.urlFB
+                            }
+                        });
                     };
                 });
 
