@@ -97,7 +97,7 @@ angular.module('YQuiz')
                             method: 'feed',
                             name: $scope.titleShare,
                             picture: $scope.thumbShare,
-                            link: $scope.urlFB + "?ref=share",
+                            link: $scope.urlFB,
                             description: 'Welcome to yquizz',
                         }, callback).then(callback);
                     };
