@@ -75,21 +75,32 @@ angular.module('YQuiz')
                     $scope.quizById = res.data.data;
                     ngMeta.setTitle($scope.quizById[0].title);
                     ngMeta.setTag('description', $scope.quizById[0].description);
-                    // ngMeta.setTag('image', $scope.quizById[0].featuredImg);
-                    // $scope.shareFB = function () {
-                    //     var no = 1, callback = function (res) {
-                    //         console.log($scope.urlFB);
-                    //         console.log('FB.ui callback execution', no++);
-                    //         console.log('response:', res);
-                    //     };
-                    //     ezfb.ui({
-                    //         method: 'feed',
-                    //         name: $scope.quizById.title,
-                    //         picture: $scope.quizById.featuredImg,
-                    //         link: $scope.urlFB,
-                    //         description: 'Welcome to yquizz',
-                    //     }, callback).then(callback);
-                    // };
+                });
+            $scope.results = quizService
+                .resultByQuiz($location.search().id)
+                .error(function (e) {
+                    console.log(e)
+                })
+                .then(function (res) {
+                    $scope.results = res.data.data;
+                    $scope.randResult = Math.floor(Math.random() * $scope.results.length);
+                    $scope.titleShare = $scope.results[$scope.randResult].title;
+                    $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
+                    ngMeta.setTag('image', $scope.thumbShare);
+                    $scope.shareFB = function () {
+                        var no = 1, callback = function (res) {
+                            console.log($scope.urlFB);
+                            console.log('FB.ui callback execution', no++);
+                            console.log('response:', res);
+                        };
+                        ezfb.ui({
+                            method: 'feed',
+                            name: $scope.titleShare,
+                            picture: $scope.thumbShare,
+                            link: $scope.urlFB + "?ref=share",
+                            description: 'Welcome to yquizz',
+                        }, callback).then(callback);
+                    };
                 });
 
             $scope.questions = quizService
@@ -103,41 +114,6 @@ angular.module('YQuiz')
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
                 if (($scope.indexStt + 1) === $scope.questions.length) {
-                    $scope.results = quizService
-                        .resultByQuiz($location.search().id)
-                        .error(function (e) {
-                            console.log(e)
-                        })
-                        .then(function (res) {
-                            $scope.results = res.data.data;
-                            $scope.randResult = Math.floor(Math.random() * $scope.results.length);
-                            $scope.titleShare = $scope.results[$scope.randResult].title;
-                            $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
-                            ngMeta.setTitle($scope.titleShare);
-                            ngMeta.setTag('image', $scope.thumbShare);
-                            // $scope.shareFB = function () {
-                            //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'http://yquizz.com',
-                            //         'facebook-share-dialog',
-                            //         'width=800,height=600'
-                            //     );
-                            //     return false;
-                            // }
-                            $scope.shareFB = function () {
-                                var no = 1, callback = function (res) {
-                                    console.log($scope.urlFB);
-                                    console.log('FB.ui callback execution', no++);
-                                    console.log('response:', res);
-                                };
-                                ezfb.ui({
-                                    method: 'feed',
-                                    name: $scope.titleShare,
-                                    picture: $scope.thumbShare,
-                                    link: $scope.urlFB + "?ref=share",
-                                    description: 'Welcome to yquizz',
-                                }, callback).then(callback);
-                            };
-                        });
-
                     $scope.showSecond = false;
                     $scope.showResult = true;
                 }
