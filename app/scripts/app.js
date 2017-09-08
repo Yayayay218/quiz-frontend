@@ -19,8 +19,7 @@ YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ez
                 }
             }
         });
-    // $locationProvider.html5Mode({enabled: true, requireBase: false}).hashPrefix('!');
-    $locationProvider.hashPrefix('!');
+    $locationProvider.html5Mode(true).hashPrefix('');
 
     ezfbProvider.setInitParams({appId: '1706155966071399', version: 'v2.8'});
     ezfbProvider.setLocale('en_EN');
