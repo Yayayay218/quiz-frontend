@@ -75,22 +75,21 @@ angular.module('YQuiz')
                     $scope.quizById = res.data.data;
                     ngMeta.setTitle($scope.quizById[0].title);
                     ngMeta.setTag('description', $scope.quizById[0].description);
-                    ngMeta.setTag('image', $scope.quizById[0].featuredImg);
-                    console.log($scope.quizById);
-                    $scope.shareFB = function () {
-                        var no = 1, callback = function (res) {
-                            console.log($scope.urlFB);
-                            console.log('FB.ui callback execution', no++);
-                            console.log('response:', res);
-                        };
-                        ezfb.ui({
-                            method: 'feed',
-                            name: $scope.quizById.title,
-                            picture: $scope.quizById.featuredImg,
-                            link: $scope.urlFB,
-                            description: 'Welcome to yquizz',
-                        }, callback).then(callback);
-                    };
+                    // ngMeta.setTag('image', $scope.quizById[0].featuredImg);
+                    // $scope.shareFB = function () {
+                    //     var no = 1, callback = function (res) {
+                    //         console.log($scope.urlFB);
+                    //         console.log('FB.ui callback execution', no++);
+                    //         console.log('response:', res);
+                    //     };
+                    //     ezfb.ui({
+                    //         method: 'feed',
+                    //         name: $scope.quizById.title,
+                    //         picture: $scope.quizById.featuredImg,
+                    //         link: $scope.urlFB,
+                    //         description: 'Welcome to yquizz',
+                    //     }, callback).then(callback);
+                    // };
                 });
 
             $scope.questions = quizService
