@@ -14,7 +14,33 @@ body {
     font-family: Roboto, sans-serif;
 }
 
-.form-control::-webkit-input-placeholder { /* Chrome */
+.icon-email {
+    background: url(../images/icons/envelope.svg) no-repeat;
+    background-size: 16px auto;
+    width: 16px;
+    height: 17px;
+    margin-top: 2px;
+    display: inline-block;
+}
+
+.email-group {
+    background: url(../images/group-4.svg) repeat-x;
+    height: 5px;
+}
+
+.form-email .input-group {
+    margin-left: 37px;
+    margin-top: 20px;
+}
+
+.form-email .input-group-addon {
+    width: 0;
+    background-color: #e60e64;
+    border-radius: 0 5px 5px 0;
+    box-shadow: none;
+}
+
+.yquizz-search .form-control::-webkit-input-placeholder { /* Chrome */
     color: #ffffff;
     /*opacity: 0.8;*/
     /*z-index: 1000;*/
@@ -31,7 +57,7 @@ body {
     width: 100%;
     height: 60px;
     border-radius: 6px;
-    background-color: #d9005a;
+    background-color: rgba(0, 0, 0, 0.1);
     border-color: #d9005a;
     box-shadow: none;
     color: #ffffff;
@@ -63,9 +89,9 @@ body {
     border-radius: 5px;
     width: 122px;
     height: 42px;
-    background-color: #e60e64;
+    background-color: rgba(230, 14, 100, 0.6);
     border-color: #fe96c0;
-    color: #ffcbdf;
+    /*color: #ffcbdf;*/
     font-weight: 500;
 }
 
@@ -265,26 +291,27 @@ body {
 
 .yquizz-question {
     width: 100%;
-    height: 80px;
+    height: auto;
     background-color: #f2d122;
-    position: absolute;
-    top: 370px;
+    /*position: absolute;*/
+    /*top: 370px;*/
+    margin-top: -30px;
 }
 
 .yquizz-question h2 {
     text-align: left;
     font-size: 24px;
     color: #252525;
-    padding-left: 29px;
-    margin-top: 26px;
+    padding-left: 18px;
+    padding-top: 30px;
 }
 
-.yquizz-question .number-question {
+.yquizz-question .number-question p {
     font-size: 18px;
     text-align: right;
     color: #252525;
-    margin-top: -33px;
-    margin-right: 25px;
+    margin-top: -12px;
+    margin-right: 15px;
 }
 
 .yquizz-email {
@@ -307,8 +334,7 @@ body {
 .form-email .form-control {
     width: 240px;
     height: 45px;
-    margin-top: 21px;
-    margin-left: 50px;
+    border-radius: 5px 0 0 5px;
 }
 
 .yquizz-btn {
@@ -450,6 +476,7 @@ body {
 .custom-yquizz-list {
     height: 440px;
 }
+
 @media (max-width: 767px) {
     .yquizz-img-lg {
         height: 204px;
@@ -498,11 +525,11 @@ body {
     }
 
     .show-second img {
-        height: 417px;
+        height: 320px;
     }
 
     .yquizz-question {
-        height: 117px;
+        height: auto;
         top: 300px;
     }
 
@@ -512,7 +539,7 @@ body {
         text-align: left;
         color: #252525;
         padding-left: 20px;
-        padding-top: 0px;
+        padding-top: 14px;
     }
 
     .yquizz-question .number-question {
@@ -569,5 +596,21 @@ body {
         position: absolute;
         bottom: 0px;
         width: 100%;
+    }
+
+    .email-group {
+        margin-top: 15px;
+    }
+
+    /*.yquizz-email p {*/
+        /*margin-left: 5px;*/
+    /*}*/
+
+    .form-email .input-group {
+        margin: 25px auto;
+    }
+
+    .form-email .form-control {
+        width: auto;
     }
 }

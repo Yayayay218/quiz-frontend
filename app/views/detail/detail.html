@@ -19,7 +19,9 @@
                     </div>
                 </div>
                 <div class="btn-group-vertical">
-                    <button type="button" class="btn btn-primary" ng-click="pickAnswer()" ng-repeat="choice in questions[indexStt].answers">{{choice.content}}</button>
+                    <button type="button" class="btn btn-primary" ng-click="pickAnswer()"
+                            ng-repeat="choice in questions[indexStt].answers">{{choice.content}}
+                    </button>
                 </div>
             </div>
 
@@ -32,10 +34,14 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <button type="button" class="btn yquizz-btn btn-facebook" id="fbBtn" ng-click="shareFB()"><span class="facebook-icon-btn"></span>Share on Facebook</button>
+                    <button type="button" class="btn yquizz-btn btn-facebook" id="fbBtn" ng-click="shareFB()"><span
+                            class="facebook-icon-btn"></span>Share on Facebook
+                    </button>
                 </div>
                 <div class="col-md-5">
-                    <button type="button" class="btn yquizz-btn btn-message" data-href="{{urlFB}}"><span class="messenger-icon"></span>Share on Messenger</button>
+                    <button type="button" class="btn yquizz-btn btn-message" data-href="{{urlFB}}"><span
+                            class="messenger-icon"></span>Share on Messenger
+                    </button>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn yquizz-btn btn-next">Next Quiz</button>
@@ -45,11 +51,17 @@
     </div>
 
     <div class="col-md-4">
+        <div class="email-group"></div>
         <div class="yquizz-email">
             <p>Sign up for our awesome newsletter to get the latest news</p>
             <div class="form-email">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter email address">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter email address">
+                        <div class="input-group-addon">
+                            <span class="icon-email"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
