@@ -16,7 +16,7 @@
 
     <div class="row" style="margin-top: 30px">
         <div infinite-scroll="loadMore()" infinite-scroll-distance="1">
-            <div class="col-md-4" ng-repeat="quiz in items">
+            <div class="col-md-4 custom-yquizz-list" ng-repeat="quiz in items" ng-if="quiz._id !== items[0]._id && quiz._id !== items[1]._id">
                 <div class="yquizz-list-sm">
                     <div class="yquizz-img-sm">
                         <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
@@ -25,9 +25,10 @@
                         <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
                         <h3 style="margin-top: 8px; margin-bottom: 8px"><a ui-sref="detail({id: quiz._id})" href="">{{quiz.title}}</a>
                         </h3>
-                        <p>{{quiz.description}}</p>
+                        <p style="overflow: hidden; height: 20px">{{quiz.description}}</p>
                     </div>
                 </div>
+                <div class="clearfix visible-xs-block"></div>
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 /* Search icon by IcoMoon, made with http://icomoon.io/app/ */
 @font-face {
     font-family: 'icomoon';
-    src:url('fonts/icomoon/icomoon.eot');
-    src:url('fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
+    src: url('fonts/icomoon/icomoon.eot');
+    src: url('fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'),
     url('fonts/icomoon/icomoon.woff') format('woff'),
     url('fonts/icomoon/icomoon.ttf') format('truetype'),
     url('fonts/icomoon/icomoon.svg#icomoon') format('svg');
@@ -13,6 +13,7 @@
 body {
     font-family: Roboto, sans-serif;
 }
+
 .form-control::-webkit-input-placeholder { /* Chrome */
     color: #ffffff;
     /*opacity: 0.8;*/
@@ -143,11 +144,19 @@ body {
 }
 
 .yquizz-list-content-sm p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: left;
+    color: #5e6977;
     height: 4em;
     overflow: hidden;
 }
 
 .yquizz-list-content-sm a {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
     color: #43484d;
 }
 
@@ -246,10 +255,12 @@ body {
     background-color: #ffffff;
     color: #5e6977;
     font-size: 16px;
+    overflow: hidden;
 }
 
 .show-second .btn-primary:hover {
     background-color: #e60e64;
+    color: #ffffff;
 }
 
 .yquizz-question {
@@ -334,7 +345,7 @@ body {
     font-size: 18px;
 }
 
-.btn-next:hover{
+.btn-next:hover {
     color: #ffffff;
 }
 
@@ -422,10 +433,31 @@ body {
     content: "\e000";
 }
 
+.yquizz-detail h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #43484d;
+}
+
+.yquizz-detail p {
+    font-size: 24px;
+    font-weight: 300;
+    /*text-align: center;*/
+    color: #43484d;
+}
+
+.custom-yquizz-list {
+    height: 440px;
+}
 @media (max-width: 767px) {
     .yquizz-img-lg {
         height: 204px;
         margin-bottom: 15px;
+    }
+
+    .custom-yquizz-list {
+        height: 345px;
     }
 
     .yquizz-list-content {
@@ -443,19 +475,26 @@ body {
         height: 188px;
     }
 
+    .show-first {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
     .show-first img {
         width: 300px;
         height: 300px;
     }
 
     .btn-circle {
-        top: 96px;
-        left: 96px;
+        top: 142px;
+        left: 116px;
     }
 
     .btn-circle.btn-xl {
-        width: 108px;
-        height: 108px;
+        width: 70px;
+        height: 70px;
+        font-size: 1.1em;
     }
 
     .show-second img {
@@ -468,7 +507,7 @@ body {
     }
 
     .yquizz-question h2 {
-        font-size: 24px;
+        font-size: 17px;
         font-weight: 500;
         text-align: left;
         color: #252525;
@@ -480,7 +519,7 @@ body {
         text-align: left;
         margin-top: 36px;
         padding-left: 20px;
-        font-size: 18px;
+        font-size: 15px;
         color: #252525;
     }
 
@@ -497,8 +536,8 @@ body {
     }
 
     .yquizz-lang .btn-group {
-        margin-top: 18px;
-        margin-left: 95px;
+        margin-top: 7px;
+        margin-left: 80px;
     }
 
     .search-input {
@@ -506,7 +545,29 @@ body {
     }
 
     .yquizz-icon-search {
-        top: 16px;
+        top: 6px;
     }
 
+    .yquizz-header .navbar {
+        min-height: 70px;
+    }
+
+    .yquizz-header .navbar-brand img {
+        width: 80px;
+    }
+
+    .show-first h1 {
+        color: #ffffff;
+        position: absolute;
+        top: 10px;
+        font-size: 25px;
+        width: 100%;
+    }
+
+    .show-first p {
+        color: #ffffff;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
 }
