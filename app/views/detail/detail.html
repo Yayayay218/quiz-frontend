@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4" style="margin-left: -15px;margin-right: -15px">
         <div class="email-group"></div>
         <div class="yquizz-email">
             <p>Sign up for our awesome newsletter to get the latest news</p>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div class="yquizz-list-sm" ng-repeat="quiz in items | limitTo: 2">
+        <div class="yquizz-list-sm custom-yquizz-list" ng-repeat="quiz in items | limitTo: 2">
             <div class="yquizz-img-sm">
                 <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
             </div>

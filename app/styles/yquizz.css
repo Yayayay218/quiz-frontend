@@ -525,7 +525,7 @@ body {
     }
 
     .show-second img {
-        height: 320px;
+        height: 195px;
     }
 
     .yquizz-question {
@@ -612,5 +612,19 @@ body {
 
     .form-email .form-control {
         width: auto;
+    }
+
+    .yquizz-detail {
+        margin-top: -22px;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .show-second .btn-group-vertical .btn {
+        height: 35px;
+    }
+
+    .yquizz-email p {
+        margin: 0 auto;
     }
 }
