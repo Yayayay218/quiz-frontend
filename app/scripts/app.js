@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var YQuiz = angular.module('YQuiz', ['ui.router', '720kb.socialshare', 'infinite-scroll', 'ezfb', 'ngMeta', 'ngFileUpload']);
+var YQuiz = angular.module('YQuiz', ['ui.router', '720kb.socialshare', 'infinite-scroll', 'ezfb', 'ngMeta']);
 
 YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ezfbProvider, ngMetaProvider) {
     $urlRouterProvider.otherwise('/');
