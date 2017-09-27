@@ -65,9 +65,9 @@ angular.module('YQuiz')
             $scope.page += 1;
         };
 
-        if ($location.search().id) {
+        if ($stateParams.slug) {
             $scope.quizById = quizService
-                .quizGetOne($location.search().id)
+                .quizGetOne($stateParams.slug)
                 .error(function (e) {
                     console.log(e)
                 })
@@ -76,41 +76,44 @@ angular.module('YQuiz')
                     ngMeta.setTitle($scope.quizById[0].title);
                     ngMeta.setTag('description', $scope.quizById[0].description);
                 });
-            $scope.results = quizService
-                .resultByQuiz($location.search().id)
-                .error(function (e) {
-                    console.log(e)
-                })
-                .then(function (res) {
-                    $scope.results = res.data.data;
-                    $scope.randResult = Math.floor(Math.random() * $scope.results.length);
-                    $scope.titleShare = $scope.results[$scope.randResult].title;
-                    $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
-                    ngMeta.setTag('image', $scope.thumbShare);
-                    $scope.shareFB = function () {
-                        var no = 1, callback = function (res) {
-                            console.log($scope.urlFB);
-                            console.log('FB.ui callback execution', no++);
-                            console.log('response:', res);
+            $timeout(function () {
+                $scope.results = quizService
+                    .resultByQuiz($scope.quizById[0]._id)
+                    .error(function (e) {
+                        console.log(e)
+                    })
+                    .then(function (res) {
+                        $scope.results = res.data.data;
+                        $scope.randResult = Math.floor(Math.random() * $scope.results.length);
+                        $scope.titleShare = $scope.results[$scope.randResult].title;
+                        $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
+                        ngMeta.setTag('image', $scope.thumbShare);
+                        $scope.shareFB = function () {
+                            var no = 1, callback = function (res) {
+                                console.log($scope.urlFB);
+                                console.log('FB.ui callback execution', no++);
+                                console.log('response:', res);
+                            };
+                            ezfb.ui({
+                                method: 'feed',
+                                name: $scope.titleShare,
+                                picture: $scope.thumbShare,
+                                link: $scope.urlFB,
+                                description: 'Welcome to yquizz',
+                            }, callback).then(callback);
                         };
-                        ezfb.ui({
-                            method: 'feed',
-                            name: $scope.titleShare,
-                            picture: $scope.thumbShare,
-                            link: $scope.urlFB,
-                            description: 'Welcome to yquizz',
-                        }, callback).then(callback);
-                    };
-                });
+                    });
 
-            $scope.questions = quizService
-                .questionByQuiz($location.search().id)
-                .error(function (e) {
-                    console.log(e)
-                })
-                .then(function (res) {
-                    $scope.questions = res.data.data;
-                });
+                $scope.questions = quizService
+                    .questionByQuiz($scope.quizById[0]._id)
+                    .error(function (e) {
+                        console.log(e)
+                    })
+                    .then(function (res) {
+                        $scope.questions = res.data.data;
+                    });
+            }, 1000)
+
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
                 if (($scope.indexStt + 1) === $scope.questions.length) {
@@ -132,5 +135,23 @@ angular.module('YQuiz')
                 else
                     $scope.indexStt++;
             };
+            $scope.nextQuiz = $http.get(API.URL + 'quizzes')
+                .error(function (e) {
+                    console.log(e);
+                })
+                .then(function (data) {
+                    var randPage = Math.floor(Math.random() * data.data.pages);
+                    $scope.next = quizService
+                        .quizGetAll(randPage + 1)
+                        .error(function (e) {
+                            console.log(e);
+                        })
+                        .then(function (res) {
+                            var index = Math.floor(Math.random() * res.data.data.length);
+                            $timeout(function () {
+                                $scope.next = res.data.data[index];
+                            }, 1000);
+                        })
+                })
         }
     });

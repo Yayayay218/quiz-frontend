@@ -6,13 +6,16 @@ angular.module('YQuiz')
         $stateProvider
 
             .state('detail', {
-                url: '/detail?id',
+                url: '/:slug',
                 parent: 'layout',
                 views: {
                     'content@': {
                         templateUrl: 'views/detail/detail.html',
                         controller: 'detailCtrl'
                     }
-                }
+                },
+                // params: {
+                //     id: null
+                // }
             });
     });

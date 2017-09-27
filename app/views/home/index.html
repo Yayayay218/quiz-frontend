@@ -3,11 +3,11 @@
         <div class="col-md-6" ng-repeat="quiz in items | limitTo: 2">
             <div class="yquizz-list-lg">
                 <div class="yquizz-img-lg">
-                    <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
+                    <a ui-sref="detail({slug: quiz.slug})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
                 </div>
                 <div class="yquizz-list-content">
                     <i class="fa fa-eye"></i> 2108
-                    <h3><a ui-sref="detail({id: quiz._id})" href="">{{quiz.title}}</a></h3>
+                    <h3><a ui-sref="detail({slug: quiz.slug})" href="">{{quiz.title}}</a></h3>
                     <p>1 hour ago</p>
                 </div>
             </div>
@@ -19,11 +19,11 @@
             <div class="col-md-4 custom-yquizz-list" ng-repeat="quiz in items" ng-if="quiz._id !== items[0]._id && quiz._id !== items[1]._id">
                 <div class="yquizz-list-sm">
                     <div class="yquizz-img-sm">
-                        <a ui-sref="detail({id: quiz._id})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
+                        <a ui-sref="detail({slug: quiz.slug})" href=""><img ng-src="{{quiz.featuredImg}}" alt=""></a>
                     </div>
                     <div class="yquizz-list-content-sm">
                         <i class="fa fa-eye" style="margin-top: 15px"></i> 2108
-                        <h3 style="margin-top: 8px; margin-bottom: 8px"><a ui-sref="detail({id: quiz._id})" href="">{{quiz.title}}</a>
+                        <h3 style="margin-top: 8px; margin-bottom: 8px"><a ui-sref="detail({slug: quiz.slug})" href="">{{quiz.title}}</a>
                         </h3>
                         <p style="overflow: hidden; height: 20px">{{quiz.description}}</p>
                     </div>

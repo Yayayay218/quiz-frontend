@@ -8,8 +8,8 @@ function quizService(API, $http) {
         return $http.get(API.URL + 'quizzes?sort=-_id&page=' + page);
     };
 
-    var quizGetOne = function (id) {
-        return $http.get(API.URL + 'quizzes?id=' + id);
+    var quizGetOne = function (slug) {
+        return $http.get(API.URL + 'quizzes?slug=' + slug);
     };
 
     var questionByQuiz = function (id) {

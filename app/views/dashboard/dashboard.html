@@ -1,0 +1,61 @@
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="form-group add-quiz">
+                <h3 style="padding-left: 15px">Create A New Quiz</h3>
+
+                <div class="col-md-4">
+                    <avatar-uploader name="file" image="quiz.img"></avatar-uploader>
+                </div>
+
+                <div class="col-md-8">
+                    <textarea type="text" class="form-control quiz-title" placeholder="Quiz Title" ng-model="quiz.title"></textarea>
+                    <textarea type="text" class="form-control quiz-description" placeholder="Description" ng-model="quiz.description"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group add-result">
+                <h3 style="padding-left: 15px">Manage Results
+                    <span class="icon-add" ng-click="addNewResult()"></span>
+                </h3>
+                <div class="col-md-12">
+                    <div class="col-md-3" ng-repeat="item in results" style="margin-right: 10px; margin-bottom: 10px">
+                        <span class="icon-close" ng-click="removeResult($index)" ng-show="results.length > 2"></span>
+                        <textarea type="text" ng-model="results[$index].title" class="form-control quiz-result-title"
+                                  placeholder="Result Title"></textarea>
+                        <avatar-uploader name="result-{{$index}}" image="results[$index].img"></avatar-uploader>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group add-question">
+                <h3 style="padding-left: 15px">Manage Questions
+                    <span class="icon-add" ng-click="addNewQuestion()"></span>
+                </h3>
+                <div class="col-md-5" ng-repeat="item in questions" style="margin-right: 10px; margin-bottom: 10px">
+                    <div class="question-number">{{$index + 1}}</div>
+                    <div style="position: relative">
+                        <span class="icon-close" ng-click="removeQuestion($index)"
+                              ng-show="questions.length > 2"></span>
+                        <avatar-uploader name="question-{{$index}}" image="questions[$index].img"></avatar-uploader>
+                        <textarea type="text" ng-model="questions[$index].title"
+                                  class="form-control quiz-question-title"
+                                  placeholder="Enter Question Here..."></textarea>
+                    </div>
+                    <!--<div class="col-md-6 answer-box" ng-repeat="answer in answers">-->
+                    <!--<div class="answer-wrapper">-->
+                    <!--<textarea type="text" ng-model="answers[$index].title" class="form-control"-->
+                    <!--placeholder="Enter Answer"></textarea>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<button ng-click="addNewAnswer()">Add Answer</button>-->
+                </div>
+            </div>
+        </div>
+        <button type="submit" ng-click="submit()">Submit</button>
+    </form>
+</div>
