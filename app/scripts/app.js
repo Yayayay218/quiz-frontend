@@ -21,8 +21,8 @@ YQuiz.config(function ($stateProvider, $urlRouterProvider, $locationProvider, ez
         });
     $locationProvider.html5Mode(true).hashPrefix('');
     ngMetaProvider.setDefaultTitle('The Best Funny Quiz');
-    ezfbProvider.setInitParams({appId: '1706155966071399', version: 'v2.8'});
-    ezfbProvider.setLocale('en_EN');
+    // ezfbProvider.setInitParams({appId: '1706155966071399', version: 'v2.8'});
+    // ezfbProvider.setLocale('en_EN');
 });
 
 

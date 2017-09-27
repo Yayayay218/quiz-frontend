@@ -33,26 +33,23 @@
             </div>
 
             <div class="row">
-                <div class="sharethis-inline-share-buttons"></div>
-                <!--<div class="col-md-5">-->
-                    <!--<button type="button" class="btn yquizz-btn btn-facebook" id="fbBtn" data-url="http://sharethis.com" data-title="Sharing is great!" ><span-->
-                            <!--class="facebook-icon-btn"></span>Share on Facebook-->
-                    <!--</button>-->
-                <!--</div>-->
-                <!--<div class="col-md-5">-->
-                    <!--<button type="button" class="btn yquizz-btn btn-message" data-href="{{urlFB}}"><span-->
-                            <!--class="messenger-icon"></span>Share on Messenger-->
-                    <!--</button>-->
-                    <!--&lt;!&ndash;<div class="sharethis-inline-share-buttons" data-url="http://sharethis.com" data-title="Sharing is great!"></div>&ndash;&gt;-->
-                <!--</div>-->
-                <!--<div class="col-md-2">-->
-                    <!--<button type="button" class="btn yquizz-btn btn-next" ui-sref="detail({slug: next.slug})">Next Quiz</button>-->
-                <!--</div>-->
-                <!--<div class="sharethis-inline-share-buttons"></div>-->
+                <div class="col-md-5">
+                    <button type="button" class="btn yquizz-btn btn-facebook" id="fbBtn" ng-click="shareFB()"><span
+                            class="facebook-icon-btn"></span>Share on Facebook
+                    </button>
+                </div>
+                <div class="col-md-5">
+                    <button type="button" class="btn yquizz-btn btn-message" data-href="{{urlFB}}"><span
+                            class="messenger-icon"></span>Share on Messenger
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn yquizz-btn btn-next" ui-sref="detail({slug: next.slug})">Next Quiz</button>
+                </div>
             </div>
-            <!--<div class="row">-->
-                <!--<div class="fb-comments" data-href="http://yquizz.com/{{quizById[0].slug}}" data-width="100%" data-numposts="5"></div>-->
-            <!--</div>-->
+            <div class="row">
+                <div class="fb-comments" data-href="http://yquizz.com/{{quizById[0].slug}}" data-width="100%" data-numposts="5"></div>
+            </div>
         </div>
     </div>
 
