@@ -90,6 +90,7 @@ angular.module('YQuiz')
                         ngMeta.setTag('image', $scope.thumbShare);
                         $scope.shareFB = function () {
                             FB.ui({
+                                app_id: '1706155966071399',
                                 method: 'feed',
                                 link: $scope.urlFB,
                                 source: $scope.thumbShare
@@ -123,9 +124,9 @@ angular.module('YQuiz')
             $scope.pickAnswer = function () {
                 if (($scope.indexStt + 1) === $scope.questions.length) {
                     FB.ui({
+                        app_id: '1706155966071399',
                         method: 'feed',
                         link: $scope.urlFB,
-                        caption: 'An example caption',
                         source: $scope.thumbShare
                     }, function(response){});
                     // var no = 1, callback = function (res) {
