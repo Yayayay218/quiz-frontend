@@ -91,8 +91,8 @@ angular.module('YQuiz')
                         $scope.shareFB = function () {
                             FB.ui({
                                 method: 'feed',
-                                link: 'https://developers.facebook.com/docs/',
-                                caption: 'An example caption',
+                                link: $scope.urlFB,
+                                source: $scope.thumbShare
                             }, function(response){});
                             // var no = 1, callback = function (res) {
                             //     console.log($scope.urlFB);
@@ -124,8 +124,9 @@ angular.module('YQuiz')
                 if (($scope.indexStt + 1) === $scope.questions.length) {
                     FB.ui({
                         method: 'feed',
-                        link: 'https://developers.facebook.com/docs/',
+                        link: $scope.urlFB,
                         caption: 'An example caption',
+                        source: $scope.thumbShare
                     }, function(response){});
                     // var no = 1, callback = function (res) {
                     //     console.log($scope.urlFB);
