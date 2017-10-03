@@ -87,8 +87,6 @@ angular.module('YQuiz')
                                     object: {
                                         'og:url': $scope.urlFB,
                                         'og:title': $scope.titleShare,
-                                        'og:image:width': '600',
-                                        'og:image:height': '450',
                                         'og:image': $scope.thumbShare
                                     }
                                 })
@@ -118,8 +116,6 @@ angular.module('YQuiz')
                             object: {
                                 'og:url': $scope.urlFB,
                                 'og:title': $scope.titleShare,
-                                'og:image:width': '600',
-                                'og:image:height': '450',
                                 'og:image': $scope.thumbShare
                             }
                         })
