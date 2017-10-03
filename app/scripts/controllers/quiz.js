@@ -5,7 +5,6 @@ angular.module('YQuiz')
         $scope.showFirst = true;
         $scope.showSecond = false;
         $scope.showResult = false;
-        $scope.urlFB = window.location.href;
 
         $scope.play = function () {
             $scope.showFirst = false;
@@ -60,6 +59,8 @@ angular.module('YQuiz')
                         console.log(e)
                     })
                     .then(function (res) {
+                        $scope.urlFB = window.location.href;
+
                         $scope.results = res.data.data;
                         $scope.randResult = Math.floor(Math.random() * $scope.results.length);
                         $scope.titleShare = $scope.results[$scope.randResult].title;
@@ -108,8 +109,8 @@ angular.module('YQuiz')
 
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
+                $scope.urlFB = window.location.href;
                 if (($scope.indexStt + 1) === $scope.questions.length) {
-                    console.log($scope.urlFB);
                     FB.ui({
                         method: 'share_open_graph',
                         action_type: 'og.shares',
