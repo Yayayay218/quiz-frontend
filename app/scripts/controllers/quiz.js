@@ -84,7 +84,6 @@ angular.module('YQuiz')
                                 action_type: 'og.shares',
                                 action_properties: JSON.stringify({
                                     object: {
-                                        'app_id': '1706155966071399',
                                         'og:url': $scope.urlFB,
                                         'og:title': $scope.titleShare,
                                         'og:image': $scope.thumbShare
@@ -113,7 +112,6 @@ angular.module('YQuiz')
                         action_type: 'og.shares',
                         action_properties: JSON.stringify({
                             object: {
-                                'app_id': '1706155966071399',
                                 'og:url': $scope.urlFB,
                                 'og:title': $scope.titleShare,
                                 'og:image': $scope.thumbShare
