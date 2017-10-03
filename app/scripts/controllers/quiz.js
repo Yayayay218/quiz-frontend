@@ -79,7 +79,6 @@ angular.module('YQuiz')
                         }
                         ngMeta.setTag('image', $scope.thumbShare);
                         $scope.shareFB = function () {
-
                             FB.ui({
                                 method: 'share_open_graph',
                                 action_type: 'og.shares',
@@ -91,8 +90,10 @@ angular.module('YQuiz')
                                     }
                                 })
                             }, function(response){});
-
                         };
+                        $scope.sendFB = function () {
+                            window.open('fb-messenger://share?link=' + encodeURIComponent($scope.urlFB) + '&app_id=' + encodeURIComponent('1706155966071399'));
+                        }
                     });
 
                 $scope.questions = quizService
