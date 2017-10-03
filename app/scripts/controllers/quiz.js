@@ -6,34 +6,11 @@ angular.module('YQuiz')
         $scope.showSecond = false;
         $scope.showResult = false;
         $scope.urlFB = window.location.href;
-        // console.log($scope.urlFB);
 
         $scope.play = function () {
             $scope.showFirst = false;
             $scope.showSecond = true;
         };
-
-        // $scope.shareFB = function () {
-        //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + 'http://yquizz.com',
-        //         'facebook-share-dialog',
-        //         'width=800,height=600'
-        //     );
-        //     return false;
-        // }
-
-        // $scope.shareFB = function () {
-        //     var no = 1, callback = function (res) {
-        //         console.log('FB.ui callback execution', no++);
-        //         console.log('response:', res);
-        //     };
-        //     ezfb.ui({
-        //         method: 'feed',
-        //         name: $scope.titleShare,
-        //         picture: $scope.thumbShare,
-        //         link: $scope.urlFB + "?ref=share",
-        //         description: $scope.desShare,
-        //     }, callback).then(callback);
-        // };
 
         $scope.page = 2;
         $scope.quizzes = {};
@@ -87,14 +64,30 @@ angular.module('YQuiz')
                         $scope.randResult = Math.floor(Math.random() * $scope.results.length);
                         $scope.titleShare = $scope.results[$scope.randResult].title;
                         $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
+                        var FBVars = {
+                            fbAppId: '1706155966071399',
+                            fbShareUrl: $scope.urlFB,
+                            fbShareImg: $scope.thumbShare
+                        }
+                        function createFBShareLink(FBVars) {
+                            var url = 'http://www.facebook.com/dialog/feed?app_id=' + FBVars.fbAppId +
+                                '&link=' + FBVars.fbShareUrl +
+                                '&source=' + FBVars.fbShareImg +
+                                '&display=popup';
+                            return url;
+                        }
                         ngMeta.setTag('image', $scope.thumbShare);
                         $scope.shareFB = function () {
-                            FB.ui({
-                                app_id: '1706155966071399',
-                                method: 'feed',
-                                link: $scope.urlFB,
-                                source: $scope.thumbShare
-                            }, function(response){});
+                            window.open(createFBShareLink(FBVars),
+                                'feedDialog',
+                                'toolbar=0,status=0,width=626,height=436'
+                            );
+                            // FB.ui({
+                            //     app_id: '1706155966071399',
+                            //     method: 'feed',
+                            //     link: $scope.urlFB,
+                            //     source: $scope.thumbShare
+                            // }, function(response){});
                             // var no = 1, callback = function (res) {
                             //     console.log($scope.urlFB);
                             //     console.log('FB.ui callback execution', no++);
