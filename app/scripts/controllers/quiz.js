@@ -89,18 +89,23 @@ angular.module('YQuiz')
                         $scope.thumbShare = $scope.results[$scope.randResult].featuredImg;
                         ngMeta.setTag('image', $scope.thumbShare);
                         $scope.shareFB = function () {
-                            var no = 1, callback = function (res) {
-                                console.log($scope.urlFB);
-                                console.log('FB.ui callback execution', no++);
-                                console.log('response:', res);
-                            };
-                            ezfb.ui({
+                            FB.ui({
                                 method: 'feed',
-                                name: $scope.titleShare,
-                                picture: $scope.thumbShare,
-                                link: $scope.urlFB,
-                                description: 'Welcome to yquizz',
-                            }, callback).then(callback);
+                                link: 'https://developers.facebook.com/docs/',
+                                caption: 'An example caption',
+                            }, function(response){});
+                            // var no = 1, callback = function (res) {
+                            //     console.log($scope.urlFB);
+                            //     console.log('FB.ui callback execution', no++);
+                            //     console.log('response:', res);
+                            // };
+                            // ezfb.ui({
+                            //     method: 'feed',
+                            //     name: $scope.titleShare,
+                            //     picture: $scope.thumbShare,
+                            //     link: $scope.urlFB,
+                            //     description: 'Welcome to yquizz',
+                            // }, callback).then(callback);
                         };
                     });
 
@@ -117,18 +122,23 @@ angular.module('YQuiz')
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
                 if (($scope.indexStt + 1) === $scope.questions.length) {
-                    var no = 1, callback = function (res) {
-                        console.log($scope.urlFB);
-                        console.log('FB.ui callback execution', no++);
-                        console.log('response:', res);
-                    };
-                    ezfb.ui({
+                    FB.ui({
                         method: 'feed',
-                        name: $scope.titleShare,
-                        picture: $scope.thumbShare,
-                        link: $scope.urlFB,
-                        description: 'Welcome to yquizz',
-                    }, callback).then(callback);
+                        link: 'https://developers.facebook.com/docs/',
+                        caption: 'An example caption',
+                    }, function(response){});
+                    // var no = 1, callback = function (res) {
+                    //     console.log($scope.urlFB);
+                    //     console.log('FB.ui callback execution', no++);
+                    //     console.log('response:', res);
+                    // };
+                    // ezfb.ui({
+                    //     method: 'feed',
+                    //     name: $scope.titleShare,
+                    //     picture: $scope.thumbShare,
+                    //     link: $scope.urlFB,
+                    //     description: 'Welcome to yquizz',
+                    // }, callback).then(callback);
                     $scope.showSecond = false;
                     $scope.showResult = true;
                 }
