@@ -78,16 +78,21 @@ angular.module('YQuiz')
                         }
                         ngMeta.setTag('image', $scope.thumbShare);
                         $scope.shareFB = function () {
-                            window.open(createFBShareLink(FBVars),
-                                'feedDialog',
-                                'toolbar=0,status=0,width=626,height=436'
-                            );
-                            // FB.ui({
-                            //     app_id: '1706155966071399',
-                            //     method: 'feed',
-                            //     link: $scope.urlFB,
-                            //     source: $scope.thumbShare
-                            // }, function(response){});
+                            // window.open(createFBShareLink(FBVars),
+                            //     'feedDialog',
+                            //     'toolbar=0,status=0,width=626,height=436'
+                            // );
+                            FB.ui({
+                                method: 'share_open_graph',
+                                action_type: 'og.shares',
+                                action_properties: JSON.stringify({
+                                    object: {
+                                        'og:url': $scope.urlFB,
+                                        'og:title': $scope.titleShare,
+                                        'og:image': $scope.thumbShare
+                                    }
+                                })
+                            }, function(response){});
                             // var no = 1, callback = function (res) {
                             //     console.log($scope.urlFB);
                             //     console.log('FB.ui callback execution', no++);
