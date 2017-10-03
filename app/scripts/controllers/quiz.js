@@ -109,6 +109,7 @@ angular.module('YQuiz')
             $scope.indexStt = 0;
             $scope.pickAnswer = function () {
                 if (($scope.indexStt + 1) === $scope.questions.length) {
+                    console.log($scope.urlFB);
                     FB.ui({
                         method: 'share_open_graph',
                         action_type: 'og.shares',
