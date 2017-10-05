@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('YQuiz')
-    .controller('dashboardCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API, Upload) {
+    .controller('dashboardCtrl', function ($scope, Socialshare, quizService, $stateParams, $location, $timeout, $http, API) {
         $scope.results = [
             {
                 title: '',
@@ -59,34 +59,19 @@ angular.module('YQuiz')
         };
 
         $scope.submit = function () {
-            $scope.data = {
-                title: $scope.quiz.title,
-                coverPhoto: $scope.quiz.img,
-                results: $scope.results,
-                questions: $scope.questions
-            }
-            // var blob = new Blob([$scope.file], {type: "image/x-png,image/gif,image/jpeg"});
-            // var file = new File([blob], 'imageFileName.jpeg');
-            // console.log(file);
-            // console.log(blob);
-            // $scope.upload($scope.data.coverPhoto);
-            $http.post(API.URL + 'files',{
-                file: $scope.quiz.img
-            });
+            // console.log($scope.quiz.img);
 
-        };
-        // upload on file select or drop
-        $scope.upload = function (file) {
-            Upload.upload({
-                url: API.URL + 'files',
-                data: {file: file}
-            }).then(function (resp) {
-                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-            });
+            quizService.uploadPhoto({coverPhoto: $scope.quiz.img})
+                .then(function (data) {
+                    console.log(data);
+                    $scope.data = {
+                        title: $scope.quiz.title,
+                        description: $scope.quiz.description,
+                        coverPhoto: data
+                    };
+                    quizService.quizCreate($scope.data);
+                }, function (err) {
+                    console.log(err);
+                })
         };
     });

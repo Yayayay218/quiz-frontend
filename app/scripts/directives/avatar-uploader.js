@@ -17,9 +17,7 @@ var Link = function (Scope, Element) {
                 Scope.image = e.target.result;
                 angular.element(input).siblings('#' + Scope.name + '-image').attr('src', Scope.image);
             };
-            reader.readAsDataURL(new Blob([input.files[0]], {
-                "type": "image/*"
-            }));
+            reader.readAsDataURL(input.files[0]);
         }
     });
 
